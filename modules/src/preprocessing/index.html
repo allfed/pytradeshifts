@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Preprocessing - My Super Cool Respository</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Preprocessing";
+    var mkdocs_page_input_path = "modules/src/preprocessing.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> My Super Cool Respository</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../..">pytradeshifts</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Modules</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Src</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Preprocessing</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#rename_item">rename_item</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read_faostat_bulk">read_faostat_bulk</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#serialise_faostat_bulk">serialise_faostat_bulk</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_prep_trade_matrix">_prep_trade_matrix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_prep_production_vector">_prep_production_vector</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_unify_indices">_unify_indices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#format_prod_trad_data">format_prod_trad_data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rename_countries">rename_countries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#remove_entries_from_data">remove_entries_from_data</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">My Super Cool Respository</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Modules &raquo;</li>
+        
+      
+        
+          <li>Src &raquo;</li>
+        
+      
+    
+    <li>Preprocessing</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1"></h1>
+<h3 id="rename_item">rename_item</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L14">source</a></p>
+<pre><code class="language-python">.rename_item(
+   item
+)
+</code></pre>
+<hr />
+<p>Renames specific item entries for readability.</p>
+<p><strong>Args</strong></p>
+<ul>
+<li><strong>item</strong> (str) : The item name.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><strong>str</strong>  : The renamed item name.</li>
+</ul>
+<hr />
+<h3 id="read_faostat_bulk">read_faostat_bulk</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L31">source</a></p>
+<pre><code class="language-python">.read_faostat_bulk(
+   faostat_zip: str
+)
+</code></pre>
+<hr />
+<p>Return pandas.DataFrame containing FAOSTAT data extracted from a bulk
+download zip file.
+This is based on the following R implementation:
+https://rdrr.io/cran/FAOSTAT/src/R/faostat_bulk_download.R#sym-read_faostat_bulk</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>faostat_zip</strong> (str) : Path to the FAOSTAT zip file.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><strong>DataFrame</strong>  : The FAOSTAT data.</li>
+</ul>
+<hr />
+<h3 id="serialise_faostat_bulk">serialise_faostat_bulk</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L57">source</a></p>
+<pre><code class="language-python">.serialise_faostat_bulk(
+   faostat_zip: str
+)
+</code></pre>
+<hr />
+<p>Read FAOSTAT data from a bulk download zip file as a pandas.DataFrame,
+and save it as a pickle to allow for faster loading in the future.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>faostat_zip</strong> (str) : Path to the FAOSTAT zip file.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>None</p>
+<hr />
+<h3 id="_prep_trade_matrix">_prep_trade_matrix</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L79">source</a></p>
+<pre><code class="language-python">._prep_trade_matrix(
+   trade_pkl: str, item: str, unit = 'tonnes', element = 'ExportQuantity',
+   year = 'Y2018'
+)
+</code></pre>
+<hr />
+<p>Return properly formatted trade matrix.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>trade_pkl</strong> (str) : Path to the trade matrix pickle file.</li>
+<li><strong>item</strong> (str) : Item to filter for.</li>
+<li><strong>unit</strong> (str) : Unit to filter for.</li>
+<li><strong>element</strong> (str) : Element to filter for.</li>
+<li><strong>year</strong> (str) : Year to filter for.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><strong>DataFrame</strong>  : The trade matrix.</li>
+</ul>
+<hr />
+<p>Notes:
+    The optional arguments must be determined semi-manually as their allowed values
+    depend on particular datasets. E.g., unit can be "tonnes" in one file and "t"
+    in another.</p>
+<hr />
+<h3 id="_prep_production_vector">_prep_production_vector</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L124">source</a></p>
+<pre><code class="language-python">._prep_production_vector(
+   production_pkl: str, item = 'Wheat', unit = 't', year = 'Y2018'
+)
+</code></pre>
+<hr />
+<p>Return properly formatted production vector.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>production_pkl</strong> (str) : Path to the production vector pickle file.</li>
+<li><strong>item</strong> (str) : Item to filter for.</li>
+<li><strong>unit</strong> (str) : Unit to filter for.</li>
+<li><strong>year</strong> (str) : Year to filter for.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><strong>DataFrame</strong>  : The production vector.</li>
+</ul>
+<hr />
+<p>Notes:
+    The optional arguments must be determined semi-manually as their allowed values
+    depend on particular datasets. E.g., unit can be "tonnes" in one file and "t"
+    in another.</p>
+<hr />
+<h3 id="_unify_indices">_unify_indices</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L159">source</a></p>
+<pre><code class="language-python">._unify_indices(
+   production_vector: pd.DataFrame, trade_matrix: pd.DataFrame
+)
+</code></pre>
+<hr />
+<p>Return the production (as a Series) and trade matrix (DataFrame) with
+unified (i.e., such that they match each other),
+and sorted indices/columns.
+Missing values are replaced by 0.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>production_vector</strong> (pd.DataFrame) : The production vector.</li>
+<li><strong>trade_matrix</strong> (pd.DataFrame) : The trade matrix.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>The production vector and trade matrix
+    with unified indices/columns.</li>
+</ul>
+<hr />
+<h3 id="format_prod_trad_data">format_prod_trad_data</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L186">source</a></p>
+<pre><code class="language-python">.format_prod_trad_data(
+   production_pkl: str, trade_pkl: str, item: str, production_unit = 't',
+   trade_unit = 'tonnes', element = 'ExportQuantity', year = 'Y2018'
+)
+</code></pre>
+<hr />
+<p>Return properly formatted production vector (as a Series),
+and trade matrix (DataFrame).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>production_pkl</strong> (str) : Path to the production vector pickle file.</li>
+<li><strong>trade_pkl</strong> (str) : Path to the trade matrix pickle file.</li>
+<li><strong>item</strong> (str) : Item to filter for.</li>
+<li><strong>production_unit</strong> (str) : Unit to filter for in the production vector.</li>
+<li><strong>trade_unit</strong> (str) : Unit to filter for in the trade matrix.</li>
+<li><strong>element</strong> (str) : Element to filter for in the trade matrix.</li>
+<li><strong>year</strong> (str) : Year to filter for.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>The production vector and trade matrix.</li>
+</ul>
+<hr />
+<p>Notes:
+    The optional arguments must be determined semi-manually as their allowed values
+    depend on particular datasets. E.g., unit can be "tonnes" in one file and "t"
+    in another.</p>
+<hr />
+<h3 id="rename_countries">rename_countries</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L225">source</a></p>
+<pre><code class="language-python">.rename_countries(
+   data: (pd.Series|pd.DataFrame), region: str, filename: str,
+   code_type: str = 'M49Code'
+)
+</code></pre>
+<hr />
+<p>Rename country codes with country names in either production or trade data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data</strong> (pd.DataFrame) : The data to be renamed.</li>
+<li><strong>region</strong> (str) : The region of the data.</li>
+<li><strong>filename</strong> (str) : The filename for the country codes CSV file.</li>
+<li><strong>code_type</strong> (str) : The type of country code to be used.</li>
+<li><strong>after_union</strong> (bool) : Whether the index/columns of the data are already unified.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><strong>DataFrame</strong>  : The data with country codes replaced by country names.</li>
+</ul>
+<hr />
+<h3 id="remove_entries_from_data">remove_entries_from_data</h3>
+<p><a href="https://github.com/allfed/My-Super-Cool-Respository/blob/master/src/preprocessing.py/#L277">source</a></p>
+<pre><code class="language-python">.remove_entries_from_data(
+   data: (pd.Series|pd.DataFrame)
+)
+</code></pre>
+<hr />
+<p>Removes a bunch of entries from the data, which do not actually represent countries
+or where no trade data is available.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data</strong> (pd.Series | pd.DataFrame) : The data to be filtered.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><strong>DataFrame</strong>  : The filtered data.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../.." class="btn btn-neutral" title="pytradeshifts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Me</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
